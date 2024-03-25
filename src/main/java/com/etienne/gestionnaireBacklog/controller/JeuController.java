@@ -44,7 +44,7 @@ public class JeuController {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(jeu.getIdJeu())
+                .buildAndExpand(jeu.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
 
@@ -60,7 +60,7 @@ public class JeuController {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(jeu.getIdJeu())
+                .buildAndExpand(jeu.getId())
                 .toUri();
         return ResponseEntity.ok().build();
     }

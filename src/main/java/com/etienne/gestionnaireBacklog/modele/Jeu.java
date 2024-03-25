@@ -1,5 +1,6 @@
 package com.etienne.gestionnaireBacklog.modele;
 
+import enums.GameStatus;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,23 +8,23 @@ import jakarta.persistence.*;
 public class Jeu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idJeu;
+    private Long id;
     private String titre;
     private String dateSortie;
     private String description;
-    private String etat;
+    private GameStatus etat;
+    private String image;
 
     public Jeu() {
     }
 
-    public Long getIdJeu() {
-        return idJeu;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdJeu(Long idJeu) {
-        this.idJeu = idJeu;
+    public void setId(Long id) {
+        this.id = id;
     }
-
     public String getTitre() {
         return titre;
     }
@@ -48,12 +49,20 @@ public class Jeu {
         this.description = description;
     }
 
-    public String getEtat() {
+    public GameStatus getEtat() {
         return etat;
     }
 
-    public void setEtat(String etat) {
+    public void setEtat(GameStatus etat) {
         this.etat = etat;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }

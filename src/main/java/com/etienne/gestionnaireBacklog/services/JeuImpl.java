@@ -32,10 +32,12 @@ public class JeuImpl {
         Optional<Jeu> jeuExistant = jeuRepository.findById(id);
         if (jeuExistant.isPresent()){
             Jeu jeu = jeuExistant.get();
-            jeu.setTitre(jeuModifier.getTitre());
-            jeu.setDateSortie(jeuModifier.getDateSortie());
-            jeu.setDescription(jeuModifier.getDescription());
-            jeu.setEtat(jeuModifier.getEtat());
+
+            jeu.setTitre((jeuModifier.getTitre() != null) ? jeuModifier.getTitre() : jeu.getTitre());
+            jeu.setDateSortie((jeuModifier.getDateSortie() != null) ? jeuModifier.getDateSortie() : jeu.getDateSortie());
+            jeu.setDescription((jeuModifier.getDescription() != null) ? jeuModifier.getDescription() : jeu.getDescription());
+            jeu.setEtat((jeuModifier.getEtat() != null) ? jeuModifier.getEtat() : jeu.getEtat());
+            jeu.setImage((jeuModifier.getImage() != null) ? jeuModifier.getImage() : jeu.getImage());
             jeuRepository.save(jeu);
         }else{
             throw new JeuIntrouvableException("Jeu introuvable");
