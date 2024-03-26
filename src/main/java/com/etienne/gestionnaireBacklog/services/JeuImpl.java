@@ -36,7 +36,6 @@ public class JeuImpl {
             jeu.setTitre((jeuModifier.getTitre() != null) ? jeuModifier.getTitre() : jeu.getTitre());
             jeu.setDateSortie((jeuModifier.getDateSortie() != null) ? jeuModifier.getDateSortie() : jeu.getDateSortie());
             jeu.setDescription((jeuModifier.getDescription() != null) ? jeuModifier.getDescription() : jeu.getDescription());
-            jeu.setEtat((jeuModifier.getEtat() != null) ? jeuModifier.getEtat() : jeu.getEtat());
             jeu.setImage((jeuModifier.getImage() != null) ? jeuModifier.getImage() : jeu.getImage());
             jeuRepository.save(jeu);
         }else{

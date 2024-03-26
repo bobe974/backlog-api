@@ -15,5 +15,31 @@ public class Avis {
     @Enumerated(EnumType.STRING)
     private TypeAvis typeAvis;
 
-    // Getters et Setters
+    public Long getId() {
+        return id;
+    }
+
+    public int getNote() {
+        return note;
+    }
+
+    public void setNote(int note) {
+        this.note = note;
+    }
+
+    public String getJustification() {
+        return justification;
+    }
+
+    public void setJustification(String justification) {
+        this.justification = justification;
+    }
+
+    public TypeAvis getTypeAvis() {
+        return typeAvis;
+    }
+
+    public void setTypeAvis(TypeAvis typeAvis) {
+        this.typeAvis = typeAvis;
+    }
 }

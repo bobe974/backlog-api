@@ -1,6 +1,5 @@
 package com.etienne.gestionnaireBacklog.modele;
 import enums.GameStatus;
-import enums.TypeAvis;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,11 +17,8 @@ public class JoueurJeu {
     @ManyToOne
     @JoinColumn(name = "jeu_id")
     private Jeu jeu;
-
-   // @Enumerated(EnumType.STRING)
     private GameStatus etat;
-
-    private double tempsDeJeu;
+    private Double tempsDeJeu;
     private String dateDebut;
     private String dateFin;
     //chaque occurence de JoueurJeu peut avoir un seul a avis sur un jeu
@@ -30,6 +26,56 @@ public class JoueurJeu {
     @JoinColumn(name = "avis_id")
     private Avis avis;
 
+    public Long getId() {
+        return id;
+    }
 
+    public Joueur getJoueur() {
+        return joueur;
+    }
+
+    public Jeu getJeu() {
+        return jeu;
+    }
+
+    public GameStatus getEtat() {
+        return etat;
+    }
+
+    public void setEtat(GameStatus etat) {
+        this.etat = etat;
+    }
+
+    public Double getTempsDeJeu() {
+        return tempsDeJeu;
+    }
+
+    public void setTempsDeJeu(Double tempsDeJeu) {
+        this.tempsDeJeu = tempsDeJeu;
+    }
+
+    public String getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(String dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public String getDateFin() {
+        return dateFin;
+    }
+
+    public void setDateFin(String dateFin) {
+        this.dateFin = dateFin;
+    }
+
+    public Avis getAvis() {
+        return avis;
+    }
+
+    public void setAvis(Avis avis) {
+        this.avis = avis;
+    }
 }
 
