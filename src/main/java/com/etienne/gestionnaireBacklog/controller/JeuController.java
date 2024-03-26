@@ -26,7 +26,7 @@ public class JeuController {
         return jeuService.recupererLesJeux();
     }
     @GetMapping(path = "{id}")
-    public Optional<Jeu> recupererLesJeux(@PathVariable Long id){
+    public Optional<Jeu> recupererJeu(@PathVariable Long id){
         Optional<Jeu> jeu = jeuService.recupererJeu(id);
         if (jeu.isEmpty()){
             throw  new JeuIntrouvableException("Le jeu avec l'id "+ id + " est introuvable !");

@@ -19,7 +19,12 @@ public class JoueurImpl {
     }
 
     public Optional<Joueur> lireJoueur(Long id ){
-        return joueurRepository.findById(id);
+        Optional<Joueur> joueur = joueurRepository.findById(id);
+        if(joueur.isPresent()){
+            return joueur;
+        }else {
+            throw new JoueurIntrouvableException("Le joueur avec l'ID " + id + " n'a pas été trouvé");
+        }
     }
     public List<Joueur>lireJoueurs(){
         return joueurRepository.findAll();
@@ -36,6 +41,7 @@ public class JoueurImpl {
             joueurBdd = joueurRepository.findById(id).get();
             joueurBdd.setAge((joueur.getAge() != null) ? joueur.getAge() : joueurBdd.getAge());
             joueurBdd.setJeuFavoris((joueur.getJeuFavoris() != null) ? joueur.getJeuFavoris() : joueurBdd.getJeuFavoris());
+            joueurRepository.save(joueurBdd);
         }else{
             throw new JoueurIntrouvableException("Joueur introuvable");
         }
