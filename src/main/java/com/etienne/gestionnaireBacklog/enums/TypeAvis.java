@@ -1,4 +1,4 @@
-package enums;
+package com.etienne.gestionnaireBacklog.enums;
 
 public enum TypeAvis {
     ECLATAX,

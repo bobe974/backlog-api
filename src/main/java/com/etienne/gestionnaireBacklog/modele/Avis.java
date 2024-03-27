@@ -1,5 +1,5 @@
 package com.etienne.gestionnaireBacklog.modele;
-import enums.TypeAvis;
+import com.etienne.gestionnaireBacklog.enums.TypeAvis;
 import jakarta.persistence.*;
 
 @Entity

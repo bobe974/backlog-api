@@ -1,6 +1,5 @@
 package com.etienne.gestionnaireBacklog.modele;
 
-import enums.GameStatus;
 import jakarta.persistence.*;
 
 @Entity
