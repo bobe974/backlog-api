@@ -12,7 +12,6 @@ public class Jeu {
     private String titre;
     private String dateSortie;
     private String description;
-    private GameStatus etat;
     private String image;
 
     public Jeu() {
@@ -47,14 +46,6 @@ public class Jeu {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public GameStatus getEtat() {
-        return etat;
-    }
-
-    public void setEtat(GameStatus etat) {
-        this.etat = etat;
     }
 
     public String getImage() {
