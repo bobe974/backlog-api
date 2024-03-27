@@ -2,6 +2,8 @@ package com.etienne.gestionnaireBacklog.modele;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "joueur")
 public class Joueur {
@@ -14,7 +16,10 @@ public class Joueur {
     private String sexe;
     private String age;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "joueur", cascade = CascadeType.REMOVE)
+    private List<JoueurJeu> joueurJeux;
+
+    @ManyToOne(optional = true)
     @JoinColumn(name = "jeu_favoris_id")
     private Jeu jeuFavoris;
 
