@@ -10,11 +10,11 @@ public class JoueurJeu {
     private Long id;
 
     //chaque occurence JoueurJeu est associée à un seul joueur et un seul jeu
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "joueur_id")
     private Joueur joueur;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "jeu_id")
     private Jeu jeu;
     private GameStatus etat;

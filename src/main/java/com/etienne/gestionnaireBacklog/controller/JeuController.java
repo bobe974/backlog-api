@@ -21,6 +21,7 @@ public class JeuController {
     public JeuController(JeuImpl jeuService){
         this.jeuService = jeuService;
     }
+    @CrossOrigin
     @GetMapping
     public List<Jeu> recupererLesJeux(){
         return jeuService.recupererLesJeux();
@@ -34,6 +35,7 @@ public class JeuController {
         return jeu;
     }
 
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<Jeu> ajouterJeu(@RequestBody Jeu jeu){
         if (Objects.isNull(jeu)) {
@@ -50,6 +52,7 @@ public class JeuController {
 
     }
 
+    @CrossOrigin
     @PutMapping(path = "{id}")
     public ResponseEntity<Jeu> modifierJeu(@RequestBody Jeu jeu, @PathVariable Long id){
         if(Objects.isNull(jeu)){
@@ -64,7 +67,7 @@ public class JeuController {
                 .toUri();
         return ResponseEntity.ok().build();
     }
-
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> supprimerJeu(@PathVariable Long id){
         try {

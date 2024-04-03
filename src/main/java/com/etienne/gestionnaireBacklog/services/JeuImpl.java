@@ -25,8 +25,16 @@ public class JeuImpl {
     }
 
     public void ajouterJeu(Jeu jeu){
-        jeuRepository.save(jeu);
-    }
+        Optional<Jeu> jeuExistant;
+        if(jeu.getId() != null){
+             jeuExistant= jeuRepository.findById(jeu.getId());
+             if(!jeuExistant.isPresent()){
+                 jeuRepository.save(jeu);
+             }
+        }else {
+            jeuRepository.save(jeu);
+        }
+  }
 
     public void modifierJeu(Jeu jeuModifier, Long id){
         Optional<Jeu> jeuExistant = jeuRepository.findById(id);

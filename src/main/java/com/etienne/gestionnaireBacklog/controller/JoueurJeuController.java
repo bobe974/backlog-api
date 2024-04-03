@@ -34,6 +34,7 @@ public class JoueurJeuController {
         return service.lire();
     }
 
+    @CrossOrigin
     @PostMapping()
     public ResponseEntity<JoueurJeu> ajouter(@RequestBody JoueurJeu joueurJeu){
         service.ajouter(joueurJeu);
@@ -46,6 +47,7 @@ public class JoueurJeuController {
         return ResponseEntity.created(location).build();
     }
 
+    @CrossOrigin
     @PutMapping(path = "{id}")
     public ResponseEntity<Joueur> modifier(@RequestBody JoueurJeu joueurJeu, @PathVariable Long id){
         if(Objects.isNull(joueurJeu)){
