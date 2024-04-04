@@ -26,6 +26,7 @@ public class JeuController {
     public List<Jeu> recupererLesJeux(){
         return jeuService.recupererLesJeux();
     }
+    @CrossOrigin
     @GetMapping(path = "{id}")
     public Optional<Jeu> recupererJeu(@PathVariable Long id){
         Optional<Jeu> jeu = jeuService.recupererJeu(id);
