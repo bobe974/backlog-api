@@ -1,4 +1,4 @@
-# **Backend de l'Application Fullstack de Gestion de Jeux Vidéo**
+# **Backend de l'Application Fullstack de Gestion de Jeux Vidéo (En cours)**
 
 API REST de l'application de gestion de jeux vidéo. Développé avec Java et le framework Spring Boot
 
