@@ -34,6 +34,11 @@ public class JoueurJeuController {
         return service.lire();
     }
 
+    @GetMapping("/joueur/{id}")
+    public List<JoueurJeu> getJoueurJeuxByJoueurId(@PathVariable Long id) {
+        return service.lireParIdJoueur(id);
+    }
+
     @CrossOrigin
     @PostMapping()
     public ResponseEntity<JoueurJeu> ajouter(@RequestBody JoueurJeu joueurJeu){

@@ -30,6 +30,10 @@ public class JoueurJeuImpl {
             throw new JoueurJeuIntrouvableException("L'occurence Joueur-Jeu avec l'ID " + id + " n'a pas été trouvé");
         }
     }
+
+    public List<JoueurJeu> lireParIdJoueur(Long id){
+       return  joueurJeuRepository.findByJoueurId(id);
+    }
     public void ajouter(JoueurJeu joueurJeu){
         joueurJeuRepository.save(joueurJeu);
     }
