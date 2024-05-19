@@ -34,6 +34,7 @@ public class JoueurJeuController {
         return service.lire();
     }
 
+    @CrossOrigin
     @GetMapping("/joueur/{id}")
     public List<JoueurJeu> getJoueurJeuxByJoueurId(@PathVariable Long id) {
         return service.lireParIdJoueur(id);
