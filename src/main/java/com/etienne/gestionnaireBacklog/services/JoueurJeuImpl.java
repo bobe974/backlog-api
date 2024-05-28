@@ -1,10 +1,14 @@
 package com.etienne.gestionnaireBacklog.services;
 
+import com.etienne.gestionnaireBacklog.exceptions.JeuIntrouvableException;
 import com.etienne.gestionnaireBacklog.exceptions.JoueurIntrouvableException;
 import com.etienne.gestionnaireBacklog.exceptions.JoueurJeuIntrouvableException;
+import com.etienne.gestionnaireBacklog.modele.Jeu;
 import com.etienne.gestionnaireBacklog.modele.Joueur;
 import com.etienne.gestionnaireBacklog.modele.JoueurJeu;
+import com.etienne.gestionnaireBacklog.repository.JeuRepository;
 import com.etienne.gestionnaireBacklog.repository.JoueurJeuRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +17,11 @@ import java.util.Optional;
 @Service
 public class JoueurJeuImpl {
      JoueurJeuRepository joueurJeuRepository;
+     JeuRepository jeuRepository;
 
-    public JoueurJeuImpl(JoueurJeuRepository joueurJeuRepository){
+    public JoueurJeuImpl(JoueurJeuRepository joueurJeuRepository, JeuRepository jeuRepository){
         this.joueurJeuRepository = joueurJeuRepository;
+        this.jeuRepository = jeuRepository;
     }
 
     public List<JoueurJeu> lire(){
@@ -34,9 +40,23 @@ public class JoueurJeuImpl {
     public List<JoueurJeu> lireParIdJoueur(Long id){
        return  joueurJeuRepository.findByJoueurId(id);
     }
-    public void ajouter(JoueurJeu joueurJeu){
+
+    /**
+     * Associe manuellement un jeu à JoueurJeu pour éviter "PersistentObjectException".
+     * Si l'utilisateur ajoute un jeu existant, il peut être détaché du contexte de persistance.
+     * En associant le jeu récupéré à JoueurJeu, on assure sa gestion par le contexte actuel.
+     * @param joueurJeu
+     */
+    @Transactional
+    public void ajouter(JoueurJeu joueurJeu) {
+        Long jeuId = joueurJeu.getJeu().getId();
+        Jeu jeu = jeuRepository.findById(jeuId)
+                .orElseThrow(() -> new JeuIntrouvableException("Jeu non trouvé, id: " + jeuId));
+        joueurJeu.setJeu(jeu);
+
         joueurJeuRepository.save(joueurJeu);
     }
+
 
     public void modifier(JoueurJeu joueurJeu, Long id){
         JoueurJeu joueurJeuBdd;

@@ -37,6 +37,9 @@ public class JoueurJeu {
     public Jeu getJeu() {
         return jeu;
     }
+    public void setJeu(Jeu jeu){
+        this.jeu = jeu;
+    }
 
     public GameStatus getEtat() {
         return etat;
