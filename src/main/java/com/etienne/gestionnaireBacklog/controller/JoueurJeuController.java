@@ -42,7 +42,7 @@ public class JoueurJeuController {
 
     @CrossOrigin
     @GetMapping("/{joueurId}/{jeuId}")
-    public ResponseEntity<?> getJoueurJeuByIds(@PathVariable Long joueurId, @PathVariable Long jeuId) {
+    public ResponseEntity<?> getJoueurJeuById(@PathVariable Long joueurId, @PathVariable Long jeuId) {
         Object result = service.recupererJeuJoueurId(joueurId, jeuId);
         if (result != null) {
             return ResponseEntity.ok(result);
