@@ -40,7 +40,7 @@ public class JoueurJeuImpl {
     public List<JoueurJeu> lireParIdJoueur(Long id){
        return  joueurJeuRepository.findByJoueurId(id);
     }
-    public JoueurJeu recupererJeuJoueurId(Long joueurId, Long jeuId){
+    public List<JoueurJeu> recupererJeuJoueurId(Long joueurId, Long jeuId){
         return joueurJeuRepository.findJeuJoueurIdByJoueurIdAndJeuId(joueurId,jeuId);
     }
 
