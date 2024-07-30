@@ -2,6 +2,8 @@ package com.etienne.gestionnaireBacklog.modele;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "jeux")
 public class Jeu {
@@ -12,6 +14,9 @@ public class Jeu {
     private String dateSortie;
     private String description;
     private String image;
+
+    @OneToMany(mappedBy = "jeu", cascade = CascadeType.REMOVE)
+    private List<JoueurJeu> joueurJeux;
 
     public Jeu() {
     }
