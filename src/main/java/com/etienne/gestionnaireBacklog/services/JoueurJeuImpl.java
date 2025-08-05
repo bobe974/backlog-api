@@ -4,7 +4,6 @@ import com.etienne.gestionnaireBacklog.exceptions.JeuIntrouvableException;
 import com.etienne.gestionnaireBacklog.exceptions.JoueurIntrouvableException;
 import com.etienne.gestionnaireBacklog.exceptions.JoueurJeuIntrouvableException;
 import com.etienne.gestionnaireBacklog.modele.Jeu;
-import com.etienne.gestionnaireBacklog.modele.Joueur;
 import com.etienne.gestionnaireBacklog.modele.JoueurJeu;
 import com.etienne.gestionnaireBacklog.repository.JeuRepository;
 import com.etienne.gestionnaireBacklog.repository.JoueurJeuRepository;

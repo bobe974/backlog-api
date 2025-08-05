@@ -76,6 +76,7 @@ public class JeuController {
             return ResponseEntity.noContent().build();
         }catch (JeuIntrouvableException e){
             return ResponseEntity.notFound().build();
+            
         }
 
     }
